@@ -40,4 +40,12 @@ sort portcount desc |
 limit 5
 ```
 
+Show me a particular host receiving traffic:
+
+```sql
+filter dstPort in [514,515,516,517,518,520] and action = "ACCEPT" and dstAddr in ['10.148.161.142'] |
+stats count(*) as records by srcAddr |
+sort records desc
+```
+
 Show me the portscanners
